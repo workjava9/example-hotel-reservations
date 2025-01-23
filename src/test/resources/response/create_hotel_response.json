@@ -1,0 +1,10 @@
+{
+  "id": 1,
+  "name": "hotel 1",
+  "headline": "hotel",
+  "city": "city",
+  "address": "address",
+  "centerDistance": 0.0,
+  "rating": 0.0,
+  "reviewCount": 0
+}
