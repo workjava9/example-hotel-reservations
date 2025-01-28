@@ -1,6 +1,6 @@
 package com.example.examplehotelreservations.repository.jpa;
 
-import com.example.examplehotelreservations.web.model.User;
+import com.example.examplehotelreservations.web.model.hotel.User;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

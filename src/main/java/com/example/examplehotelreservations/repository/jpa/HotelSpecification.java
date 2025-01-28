@@ -1,7 +1,7 @@
 package com.example.examplehotelreservations.repository.jpa;
 
 import com.example.examplehotelreservations.web.filter.HotelFilter;
-import com.example.examplehotelreservations.web.model.Hotel;
+import com.example.examplehotelreservations.web.model.hotel.Hotel;
 import org.springframework.data.jpa.domain.Specification;
 
 public interface HotelSpecification {

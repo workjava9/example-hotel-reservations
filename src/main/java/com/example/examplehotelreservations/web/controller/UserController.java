@@ -2,9 +2,9 @@ package com.example.examplehotelreservations.web.controller;
 
 import com.example.examplehotelreservations.mapper.UserMapper;
 import com.example.examplehotelreservations.service.UserService;
-import com.example.examplehotelreservations.web.model.Role;
+import com.example.examplehotelreservations.web.model.hotel.Role;
 import com.example.examplehotelreservations.web.model.RoleType;
-import com.example.examplehotelreservations.web.model.User;
+import com.example.examplehotelreservations.web.model.hotel.User;
 import com.example.examplehotelreservations.web.request.UserRequest;
 import com.example.examplehotelreservations.web.response.UserResponse;
 import jakarta.validation.Valid;

@@ -1,18 +1,17 @@
 package com.example.examplehotelreservations.service.impl;
 
-import com.example.hotel_cms.exception.EntityNotFoundException;
-import com.example.hotel_cms.model.Hotel;
-import com.example.hotel_cms.model.Room;
-import com.example.hotel_cms.repository.jpa.RoomRepository;
-import com.example.hotel_cms.repository.jpa.RoomSpecification;
-import com.example.hotel_cms.service.HotelService;
-import com.example.hotel_cms.service.RoomService;
-import com.example.hotel_cms.utility.BeanUtils;
-import com.example.hotel_cms.web.filter.RoomFilter;
+import com.example.examplehotelreservations.exception.EntityNotFoundException;
+import com.example.examplehotelreservations.repository.jpa.RoomRepository;
+import com.example.examplehotelreservations.repository.jpa.RoomSpecification;
+import com.example.examplehotelreservations.service.HotelService;
+import com.example.examplehotelreservations.service.RoomService;
+import com.example.examplehotelreservations.utils.BeanUtils;
+import com.example.examplehotelreservations.web.filter.RoomFilter;
+import com.example.examplehotelreservations.web.model.hotel.Hotel;
+import com.example.examplehotelreservations.web.model.hotel.Room;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-
 import java.text.MessageFormat;
 import java.util.List;
 

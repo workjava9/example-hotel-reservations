@@ -1,5 +1,6 @@
-package com.example.examplehotelreservations.web.model;
+package com.example.examplehotelreservations.web.model.hotel;
 
+import com.example.examplehotelreservations.web.model.RoleType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;

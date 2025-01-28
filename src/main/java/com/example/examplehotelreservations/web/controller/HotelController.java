@@ -4,7 +4,7 @@ import com.example.examplehotelreservations.mapper.HotelMapper;
 import com.example.examplehotelreservations.service.HotelService;
 import com.example.examplehotelreservations.service.ManageHotelService;
 import com.example.examplehotelreservations.web.filter.HotelFilter;
-import com.example.examplehotelreservations.web.model.Hotel;
+import com.example.examplehotelreservations.web.model.hotel.Hotel;
 import com.example.examplehotelreservations.web.request.HotelRequest;
 import com.example.examplehotelreservations.web.request.UpdateRatingRequest;
 import com.example.examplehotelreservations.web.response.HotelResponse;

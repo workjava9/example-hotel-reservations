@@ -1,4 +1,4 @@
-package com.example.examplehotelreservations.web.model;
+package com.example.examplehotelreservations.web.model.hotel;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

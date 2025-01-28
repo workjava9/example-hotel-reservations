@@ -1,7 +1,7 @@
 package com.example.examplehotelreservations.service;
 
-import com.example.examplehotelreservations.web.model.Role;
-import com.example.examplehotelreservations.web.model.User;
+import com.example.examplehotelreservations.web.model.hotel.Role;
+import com.example.examplehotelreservations.web.model.hotel.User;
 import java.util.List;
 
 public interface UserService {

@@ -1,6 +1,6 @@
 package com.example.examplehotelreservations.service;
 
-import com.example.examplehotelreservations.web.model.Booking;
+import com.example.examplehotelreservations.web.model.hotel.Booking;
 import com.example.examplehotelreservations.web.response.BookingResponse;
 import java.util.List;
 

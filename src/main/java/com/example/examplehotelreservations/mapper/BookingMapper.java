@@ -1,6 +1,6 @@
 package com.example.examplehotelreservations.mapper;
 
-import com.example.examplehotelreservations.web.model.Booking;
+import com.example.examplehotelreservations.web.model.hotel.Booking;
 import com.example.examplehotelreservations.web.request.BookingRequest;
 import com.example.examplehotelreservations.web.response.BookingResponse;
 import com.example.examplehotelreservations.web.response.BookingResponseList;

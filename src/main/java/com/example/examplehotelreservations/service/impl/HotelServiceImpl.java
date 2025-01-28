@@ -1,20 +1,18 @@
 package com.example.examplehotelreservations.service.impl;
 
-import com.example.hotel_cms.exception.BadRequestException;
-import com.example.hotel_cms.exception.EntityNotFoundException;
-import com.example.hotel_cms.model.Hotel;
-import com.example.hotel_cms.repository.jpa.HotelRepository;
-import com.example.hotel_cms.repository.jpa.HotelSpecification;
-import com.example.hotel_cms.service.HotelService;
-import com.example.hotel_cms.service.ManageHotelService;
-import com.example.hotel_cms.utility.BeanUtils;
-import com.example.hotel_cms.web.filter.HotelFilter;
-
+import com.example.examplehotelreservations.exception.BadRequestException;
+import com.example.examplehotelreservations.exception.EntityNotFoundException;
+import com.example.examplehotelreservations.repository.jpa.HotelRepository;
+import com.example.examplehotelreservations.repository.jpa.HotelSpecification;
+import com.example.examplehotelreservations.service.HotelService;
+import com.example.examplehotelreservations.service.ManageHotelService;
+import com.example.examplehotelreservations.utils.BeanUtils;
+import com.example.examplehotelreservations.web.filter.HotelFilter;
+import com.example.examplehotelreservations.web.model.hotel.Hotel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.text.MessageFormat;
 import java.util.List;
 
@@ -25,7 +23,7 @@ public class HotelServiceImpl implements HotelService, ManageHotelService {
     private final HotelRepository hotelRepository;
 
     @Override
-    public Hotel    create(Hotel hotel) {
+    public Hotel create(Hotel hotel) {
         if (hotel.getReviewCount() == (null))
             hotel.setReviewCount(0);
         if (hotel.getRating() == (null))

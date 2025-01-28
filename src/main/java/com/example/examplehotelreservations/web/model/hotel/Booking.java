@@ -1,4 +1,4 @@
-package com.example.examplehotelreservations.web.model;
+package com.example.examplehotelreservations.web.model.hotel;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -14,6 +14,7 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private Date checkInDate;

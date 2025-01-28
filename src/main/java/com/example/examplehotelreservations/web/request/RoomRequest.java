@@ -10,32 +10,34 @@ import lombok.NoArgsConstructor;
 import java.sql.Timestamp;
 import java.util.List;
 
+import static com.example.examplehotelreservations.web.model.StringMessage.*;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class RoomRequest {
 
-    @NotBlank(message = "Name is mandatory")
+    @NotBlank(message = ERROR_NAME_MANDATORY)
     private String name;
 
-    @NotBlank(message = "Description is mandatory")
+    @NotBlank(message = ERROR_DESCRIPTION_MANDATORY)
     private String description;
 
-    @NotNull(message = "Number is mandatory")
-    @Min(value = 1, message = "Number must be greater than 0")
+    @NotNull(message = ERROR_NUMBER_MANDATORY)
+    @Min(value = 1, message = ERROR_MORE_ZERO)
     private Integer number;
 
-    @NotNull(message = "Cost is mandatory")
-    @Positive(message = "Cost must be greater than 0")
+    @NotNull(message = ERROR_COST_MANDATORY)
+    @Positive(message =ERROR_COST_MORE_ZERO)
     private Double cost;
 
-    @NotNull(message = "Guests limit is mandatory")
-    @Min(value = 1, message = "Guests limit must be greater than 0")
+    @NotNull(message = ERROR_GUEST_LIMIT)
+    @Min(value = 1, message = ERROR_GUEST_MORE_ZERO)
     private Integer guestsLimit;
 
     private List<Timestamp> unavailableDates;
 
-    @NotNull(message = "Hotel ID is mandatory")
+    @NotNull(message = ERROR_HOTEL_ID)
     private Long hotelId;
 
 }

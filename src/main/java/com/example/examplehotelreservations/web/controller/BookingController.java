@@ -2,7 +2,7 @@ package com.example.examplehotelreservations.web.controller;
 
 import com.example.examplehotelreservations.mapper.BookingMapper;
 import com.example.examplehotelreservations.service.BookingService;
-import com.example.examplehotelreservations.web.model.Booking;
+import com.example.examplehotelreservations.web.model.hotel.Booking;
 import com.example.examplehotelreservations.web.request.BookingRequest;
 import com.example.examplehotelreservations.web.response.BookingResponse;
 import com.example.examplehotelreservations.web.response.BookingResponseList;

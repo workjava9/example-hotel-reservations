@@ -1,24 +1,22 @@
 package com.example.examplehotelreservations.service.impl;
 
-import com.example.hotel_cms.exception.BookedRoomException;
-import com.example.hotel_cms.exception.EntityNotFoundException;
-import com.example.hotel_cms.mapping.BookingMapper;
-import com.example.hotel_cms.model.Booking;
-import com.example.hotel_cms.model.Room;
-import com.example.hotel_cms.model.User;
-import com.example.hotel_cms.model.kafka.BookingEvent;
-import com.example.hotel_cms.repository.jpa.BookingRepository;
-import com.example.hotel_cms.repository.jpa.RoomRepository;
-import com.example.hotel_cms.service.BookingService;
-import com.example.hotel_cms.service.RoomService;
-import com.example.hotel_cms.service.UserService;
-import com.example.hotel_cms.web.response.BookingResponse;
+import com.example.examplehotelreservations.exception.BookedRoomException;
+import com.example.examplehotelreservations.exception.EntityNotFoundException;
+import com.example.examplehotelreservations.mapper.BookingMapper;
+import com.example.examplehotelreservations.repository.jpa.BookingRepository;
+import com.example.examplehotelreservations.repository.jpa.RoomRepository;
+import com.example.examplehotelreservations.service.BookingService;
+import com.example.examplehotelreservations.service.RoomService;
+import com.example.examplehotelreservations.service.UserService;
+import com.example.examplehotelreservations.web.model.hotel.Booking;
+import com.example.examplehotelreservations.web.model.hotel.Room;
+import com.example.examplehotelreservations.web.model.hotel.User;
+import com.example.examplehotelreservations.web.model.event.BookingEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -32,7 +30,6 @@ public class BookingServiceImpl implements BookingService {
 
     @Value("${app.kafka.kafkaBookingTopic}")
     private String topicName;
-
 
     private final BookingRepository bookingRepository;
     private final RoomService roomService;
@@ -92,9 +89,8 @@ public class BookingServiceImpl implements BookingService {
 
 
     private boolean isOverLap(Date start1, Date end1, Date start2, Date end2){
-        if ((start2.before(start1) && end2.before(start1)) || (start2.after(end1)&& end2.after(end1)))
-            return false;
-        else return true;
+        return (!start2.before(start1) || !end2.before(start1)) &&
+                (!start2.after(end1) || !end2.after(end1));
     }
 
     private List<Date> getDatesBetween(Date startDate, Date endDate) {

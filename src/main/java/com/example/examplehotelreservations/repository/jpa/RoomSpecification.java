@@ -1,8 +1,8 @@
 package com.example.examplehotelreservations.repository.jpa;
 
 import com.example.examplehotelreservations.web.filter.RoomFilter;
-import com.example.examplehotelreservations.web.model.Booking;
-import com.example.examplehotelreservations.web.model.Room;
+import com.example.examplehotelreservations.web.model.hotel.Booking;
+import com.example.examplehotelreservations.web.model.hotel.Room;
 import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.Root;
 import jakarta.persistence.criteria.Subquery;

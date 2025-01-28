@@ -1,5 +1,6 @@
 package com.example.examplehotelreservations.service.impl;
 
+import com.example.examplehotelreservations.repository.mongodb.BookEventRepository;
 import com.example.examplehotelreservations.repository.mongodb.UserEventRepository;
 import com.example.examplehotelreservations.service.StatisticsService;
 import com.example.examplehotelreservations.web.model.event.BookingEvent;
@@ -16,12 +17,12 @@ import java.util.List;
 public class StatisticsServiceImpl implements StatisticsService {
 
     private final UserEventRepository userEventRepository;
-    private final BookingEventRepository bookingEventRepository;
+    private final BookEventRepository bookEventRepository;
 
     @Override
     public String exportStatisticsToCsv() {
         String csvFile = "statistics.csv";
-        List<BookingEvent> bookingEvents = bookingEventRepository.findAll();
+        List<BookingEvent> bookingEvents = bookEventRepository.findAll();
         List<UserEvent> userEvents = userEventRepository.findAll();
 
         try (CSVWriter writer = new CSVWriter(new FileWriter(csvFile))) {

@@ -1,7 +1,7 @@
 package com.example.examplehotelreservations.service;
 
 import com.example.examplehotelreservations.web.filter.RoomFilter;
-import com.example.examplehotelreservations.web.model.Room;
+import com.example.examplehotelreservations.web.model.hotel.Room;
 import java.util.List;
 
 public interface RoomService {

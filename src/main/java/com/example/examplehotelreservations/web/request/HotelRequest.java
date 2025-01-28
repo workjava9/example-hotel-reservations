@@ -7,24 +7,27 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import static com.example.examplehotelreservations.web.model.StringMessage.*;
+import static jakarta.servlet.RequestDispatcher.ERROR_MESSAGE;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class HotelRequest {
 
-    @NotBlank(message = "Name must not be empty")
+    @NotBlank(message = ERROR_NAME)
     private String name;
 
-    @NotBlank(message = "Headline must not be empty")
+    @NotBlank(message = ERROR_HEADLINE)
     private String headline;
 
-    @NotBlank(message = "City must not be empty")
+    @NotBlank(message = ERROR_CITY)
     private String city;
 
-    @NotBlank(message = "Address must not be empty")
+    @NotBlank(message = ERROR_ADDRESS)
     private String address;
 
-    @NotNull(message = "Center distance must not be null")
-    @Positive(message = "Center distance must be positive")
+    @NotNull(message = ERROR_CENTER_DISTANCE_NULL)
+    @Positive(message = ERROR_CENTER_DISTANCE_NOT_NULL)
     private Double centerDistance;
 }

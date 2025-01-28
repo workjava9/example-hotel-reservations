@@ -3,7 +3,7 @@ package com.example.examplehotelreservations.web.controller;
 import com.example.examplehotelreservations.mapper.RoomMapper;
 import com.example.examplehotelreservations.service.RoomService;
 import com.example.examplehotelreservations.web.filter.RoomFilter;
-import com.example.examplehotelreservations.web.model.Room;
+import com.example.examplehotelreservations.web.model.hotel.Room;
 import com.example.examplehotelreservations.web.request.RoomRequest;
 import com.example.examplehotelreservations.web.response.RoomResponse;
 import com.example.examplehotelreservations.web.response.RoomResponseList;

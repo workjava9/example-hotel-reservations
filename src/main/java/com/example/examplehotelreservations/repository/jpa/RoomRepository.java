@@ -1,6 +1,6 @@
 package com.example.examplehotelreservations.repository.jpa;
 
-import com.example.examplehotelreservations.web.model.Room;
+import com.example.examplehotelreservations.web.model.hotel.Room;
 import io.micrometer.common.lang.NonNullApi;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

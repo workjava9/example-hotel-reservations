@@ -1,6 +1,6 @@
 package com.example.examplehotelreservations.security;
 
-import com.example.examplehotelreservations.web.model.User;
+import com.example.examplehotelreservations.web.model.hotel.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
