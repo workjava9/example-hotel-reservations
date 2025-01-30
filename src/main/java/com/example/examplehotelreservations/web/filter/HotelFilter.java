@@ -10,13 +10,22 @@ import lombok.NoArgsConstructor;
 public class HotelFilter {
 
     private Integer pageNumber;
+
     private Integer pageSize;
+
     private Long id;
+
     private String name;
+
     private String headline;
+
     private String city;
+
     private String address;
+
     private Double centerDistance;
+
     private Double rating;
+
     private Integer reviewCount;
 }

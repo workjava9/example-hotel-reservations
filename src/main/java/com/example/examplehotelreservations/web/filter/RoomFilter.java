@@ -12,12 +12,19 @@ import java.util.Date;
 public class RoomFilter {
 
     private Long id;
+
     private String name;
+
     private Double minCost;
+
     private Double maxCost;
+
     private Integer guestsLimit;
+
     private Long hotelId;
+
     private Integer pageNumber;
+
     private Integer pageSize;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")

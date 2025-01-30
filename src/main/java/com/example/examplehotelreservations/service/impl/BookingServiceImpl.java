@@ -12,6 +12,7 @@ import com.example.examplehotelreservations.web.model.hotel.Booking;
 import com.example.examplehotelreservations.web.model.hotel.Room;
 import com.example.examplehotelreservations.web.model.hotel.User;
 import com.example.examplehotelreservations.web.model.event.BookingEvent;
+import com.example.examplehotelreservations.web.response.BookingResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -57,8 +58,7 @@ public class BookingServiceImpl implements BookingService {
         roomRepository.save(room);
 
         Booking savedBooking = bookingRepository.save(booking);
-
-        // Send event to Kafka
+        
         BookingEvent event = new BookingEvent();
         event.setUserId(userId);
         event.setCheckInDate(booking.getCheckInDate());
@@ -70,14 +70,14 @@ public class BookingServiceImpl implements BookingService {
 
     @Transactional(readOnly = true)
     public List<BookingResponse> getAllBookings() {
-        List<Booking> bookings = bookingRepository.findAll();
+        List<BookingEvent> bookings = bookingRepository.findAll();
         return bookings.stream()
                 .map(bookingMapper::bookingToResponse)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<Booking> findAll() {
+    public List<BookingEvent> findAll() {
         return bookingRepository.findAll();
     }
 
