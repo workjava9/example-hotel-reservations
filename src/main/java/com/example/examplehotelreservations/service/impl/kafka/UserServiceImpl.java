@@ -1,4 +1,4 @@
-package com.example.examplehotelreservations.service.impl;
+package com.example.examplehotelreservations.service.impl.kafka;
 
 import com.example.examplehotelreservations.exception.EntityNotFoundException;
 import com.example.examplehotelreservations.exception.NotUniqUserException;

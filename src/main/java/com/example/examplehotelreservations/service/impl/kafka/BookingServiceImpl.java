@@ -1,4 +1,4 @@
-package com.example.examplehotelreservations.service.impl;
+package com.example.examplehotelreservations.service.impl.kafka;
 
 import com.example.examplehotelreservations.exception.BookedRoomException;
 import com.example.examplehotelreservations.exception.EntityNotFoundException;
@@ -70,14 +70,14 @@ public class BookingServiceImpl implements BookingService {
 
     @Transactional(readOnly = true)
     public List<BookingResponse> getAllBookings() {
-        List<BookingEvent> bookings = bookingRepository.findAll();
+        List<Booking> bookings = bookingRepository.findAll();
         return bookings.stream()
                 .map(bookingMapper::bookingToResponse)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<BookingEvent> findAll() {
+    public List<Booking> findAll() {
         return bookingRepository.findAll();
     }
 
