@@ -1,4 +1,4 @@
-package com.example.examplehotelreservations.service.impl.kafka;
+package com.example.examplehotelreservations.service.impl;
 
 import com.example.examplehotelreservations.exception.BadRequestException;
 import com.example.examplehotelreservations.exception.EntityNotFoundException;

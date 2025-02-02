@@ -1,4 +1,4 @@
-package com.example.examplehotelreservations.service.impl.mongodb;
+package com.example.examplehotelreservations.service.impl;
 
 import com.example.examplehotelreservations.security.AppUserPrincipal;
 import com.example.examplehotelreservations.service.UserService;

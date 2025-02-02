@@ -1,9 +1,0 @@
-services:
-  postgres:
-    image: 'postgres:latest'
-    environment:
-      - 'POSTGRES_DB=docker'
-      - 'POSTGRES_PASSWORD=docker'
-      - 'POSTGRES_USER=docker'
-    ports:
-      - '5432'

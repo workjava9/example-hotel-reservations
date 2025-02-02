@@ -3,7 +3,7 @@ spring:
     bootstrap-servers: localhost:9092
   data:
     mongodb:
-      uri: mongodb://root:root@localhost:27017/hotelmongo?authSource=admin
+      uri: mongodb://root:root@localhost:27017/hotel_mongo?authSource=admin
   main:
     allow-circular-references: true
   jpa:

@@ -1,4 +1,4 @@
-package com.example.examplehotelreservations.service.impl.mongodb;
+package com.example.examplehotelreservations.service.impl;
 
 import com.example.examplehotelreservations.repository.mongodb.BookEventRepository;
 import com.example.examplehotelreservations.repository.mongodb.UserEventRepository;

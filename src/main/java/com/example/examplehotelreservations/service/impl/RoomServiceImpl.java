@@ -1,4 +1,4 @@
-package com.example.examplehotelreservations.service.impl.mongodb;
+package com.example.examplehotelreservations.service.impl;
 
 import com.example.examplehotelreservations.exception.EntityNotFoundException;
 import com.example.examplehotelreservations.repository.jpa.RoomRepository;

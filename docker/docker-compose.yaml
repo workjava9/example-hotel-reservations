@@ -1,0 +1,46 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:lasted
+    ports:
+      - "5435:5432"
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=hotel_db
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    container_name: hotel_containers
+
+  mongodb:
+    image: mongo:lasted
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: mongo
+      MONGO_INITDB_DATABASE: hotel_mongo
+    container_name: mongo_container
+
+  kafka:
+    image: confluentinc/cp-kafka:lasted
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LOG4J_LOGGERS: "kafka.controller=INFO, kafka.producer.async.DefaultEventHandler=INFO, state.change.logger=INFO"
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://$DOCKERHOST:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPIC_ENABLE: 'true'
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:lasted
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    ports:
+      - "2181:2181"
+
