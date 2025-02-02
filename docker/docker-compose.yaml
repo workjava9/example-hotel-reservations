@@ -1,19 +1,19 @@
 version: '3'
 services:
   postgres:
-    image: postgres:lasted
+    image: postgres
     ports:
       - "5435:5432"
     environment:
-      - POSTGRES_USER=docker
-      - POSTGRES_PASSWORD=docker
-      - POSTGRES_DB=hotel_db
+       POSTGRES_USER: ${DB_USER}
+       POSTGRES_PASSWORD: ${DB_PASSWORD}
+       POSTGRES_DB: ${DB_NAME}
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     container_name: hotel_containers
 
   mongodb:
-    image: mongo:lasted
+    image: mongo
     ports:
       - "27017:27017"
     environment:
@@ -23,7 +23,7 @@ services:
     container_name: mongo_container
 
   kafka:
-    image: confluentinc/cp-kafka:lasted
+    image: confluentinc/cp-kafka
     depends_on:
       - zookeeper
     ports:
@@ -38,7 +38,7 @@ services:
       KAFKA_AUTO_CREATE_TOPIC_ENABLE: 'true'
 
   zookeeper:
-    image: confluentinc/cp-zookeeper:lasted
+    image: confluentinc/cp-zookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
     ports:
