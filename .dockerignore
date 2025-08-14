@@ -1,0 +1,9 @@
+.git
+.gitignore
+.github
+.gradle
+build
+.idea
+*.iml
+*.md
+docker/docker-start.cmd

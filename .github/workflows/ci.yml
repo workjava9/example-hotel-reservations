@@ -1,76 +1,40 @@
-name: CI/CD Pipeline
+name: CI - Gradle Build & Test
 
 on:
   push:
-    branches: [ main, develop ]
-    tags:
-      - 'v*.*.*'
+    branches: ["**"]
   pull_request:
-    branches: [ main, develop ]
 
-env:
-  IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/hotel-reservation
+permissions:
+  contents: read
 
 jobs:
   test:
-    name: Run Unit Tests
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
-          distribution: 'temurin'
+          distribution: temurin
+          java-version: "17"
+          cache: gradle
+
+      - name: Make Gradle wrapper executable
+        run: chmod +x gradlew
 
       - name: Run tests
-        run: mvn test
+        run: ./gradlew --no-daemon clean test
 
-  build:
-    name: Build & Package
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
+      - name: Publish test reports
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
-          java-version: '17'
-          distribution: 'temurin'
-
-      - name: Build project
-        run: mvn clean package -DskipTests
-
-      - name: Docker build
-        run: docker build -t ${{ env.IMAGE_NAME }}:${{ github.sha }} .
-
-  deploy:
-    name: Deploy to Server
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - name: Docker login
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: Push Docker image
-        run: docker push ${{ env.IMAGE_NAME }}:${{ github.sha }}
-
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v0.1.9
-        with:
-          host: ${{ secrets.PROD_HOST }}
-          username: ${{ secrets.PROD_USER }}
-          key: ${{ secrets.PROD_SSH_KEY }}
-          port: ${{ secrets.PROD_SSH_PORT }}
-          script: |
-            docker pull ${{ env.IMAGE_NAME }}:${{ github.sha }}
-            docker stop hotel || true
-            docker rm hotel || true
-            docker run -d --name hotel -p 8080:8080 ${{ env.IMAGE_NAME }}:${{ github.sha }}
+          name: junit-report
+          path: |
+            build/test-results/test/**
+            build/reports/tests/test/**
